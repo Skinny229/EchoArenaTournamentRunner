@@ -1,5 +1,6 @@
 package Main;
 
+import Database.ConnectionHandler;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.ChannelType;
@@ -8,11 +9,15 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
 
+
 public class BotInitialize extends ListenerAdapter {
+
+    private static ConnectionHandler database = new ConnectionHandler();
 
     public static void main(String[] args)
             throws LoginException {
-        JDA jda = new JDABuilder(args[0]).build();
+        database.getRemoteConnection();
+        JDA jda = new JDABuilder(Secrets.BOT_TOKEN).build();
         jda.addEventListener(new BotInitialize());
     }
 
