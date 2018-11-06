@@ -14,7 +14,7 @@ import java.sql.Connection;
 public class BotInitialize extends ListenerAdapter {
 
 
-   public static Connection databaseConnection;
+     static Connection databaseConnection;
 
     public static void main(String[] args) throws LoginException {
 
@@ -28,6 +28,7 @@ public class BotInitialize extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
+
         //event.getMember().getUser().
         if (event.isFromType(ChannelType.PRIVATE)) {
             System.out.printf("[PM] %s: %s\n", event.getAuthor().getName(),
