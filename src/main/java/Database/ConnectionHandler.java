@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ConnectionHandler {
 
-    public Connection getRemoteConnection() {
+    public static Connection getRemoteConnection() {
             try {
                 Class.forName("org.mysql.Driver");
                 String dbName = Secrets.DB_NAME;

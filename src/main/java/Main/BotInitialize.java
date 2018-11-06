@@ -8,21 +8,27 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
+import java.sql.Connection;
 
 
 public class BotInitialize extends ListenerAdapter {
 
-    private static ConnectionHandler database = new ConnectionHandler();
 
-    public static void main(String[] args)
-            throws LoginException {
-        database.getRemoteConnection();
+   public static Connection databaseConnection;
+
+    public static void main(String[] args) throws LoginException {
+
         JDA jda = new JDABuilder(Secrets.BOT_TOKEN).build();
         jda.addEventListener(new BotInitialize());
+
+        databaseConnection = ConnectionHandler.getRemoteConnection();
+
+
     }
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
+        //event.getMember().getUser().
         if (event.isFromType(ChannelType.PRIVATE)) {
             System.out.printf("[PM] %s: %s\n", event.getAuthor().getName(),
                     event.getMessage().getContentDisplay());
