@@ -3,7 +3,7 @@ package TournamentRunner;
 public class Player {
 
     private String name,ID;
-    private PlayerTeamStatus teamStatus;
+    private PlayerTeamStatus teamStyle;
     private boolean isRegistered;
 
     public Player(String IDl, String namel)
@@ -11,13 +11,17 @@ public class Player {
         ID = IDl;
         name = namel;
         isRegistered = false;
-        teamStatus = PlayerTeamStatus.NONE;
+        teamStyle = PlayerTeamStatus.NONE;
     }
 
 
-    public void setRegister(boolean status)
+     void setRegistered(boolean status)
     {
         isRegistered = status;
+    }
+
+     void setTeamStyle(PlayerTeamStatus toBe){
+        teamStyle = toBe;
     }
 
     public boolean isRegistered(){
