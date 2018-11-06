@@ -3,11 +3,15 @@ package TournamentRunner;
 public class Player {
 
     private String name,ID;
-
+    private PlayerTeamStatus teamStatus;
     private boolean isRegistered;
 
-    public Player(){
+    public Player(String IDl, String namel)
+    {
+        ID = IDl;
+        name = namel;
         isRegistered = false;
+        teamStatus = PlayerTeamStatus.NONE;
     }
 
 
