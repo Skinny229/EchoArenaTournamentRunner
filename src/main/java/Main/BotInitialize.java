@@ -20,6 +20,8 @@ public class BotInitialize extends ListenerAdapter {
 
         JDA jda = new JDABuilder(Secrets.BOT_TOKEN).build();
         jda.addEventListener(new BotInitialize());
+        jda.addEventListener(new DirectMessageHandler());
+        jda.addEventListener(new GuildMessageHandler());
 
         databaseConnection = ConnectionHandler.getRemoteConnection();
 
@@ -28,7 +30,7 @@ public class BotInitialize extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        //event.getMember().getUser().
+        //Logging Purposes
         if (event.isFromType(ChannelType.PRIVATE)) {
             System.out.printf("[PM] %s: %s\n", event.getAuthor().getName(),
                     event.getMessage().getContentDisplay());
