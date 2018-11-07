@@ -2,33 +2,36 @@ package TournamentRunner;
 
 public class Player {
 
-    private String name,ID;
+    private String name, ID;
     private PlayerTeamStatus teamStyle;
-    private boolean isRegistered;
+    private boolean isRegistered, isCheckedIn;
 
-    public Player(String IDl, String namel)
-    {
+    public Player(String IDl, String namel) {
         ID = IDl;
         name = namel;
         isRegistered = false;
+        isCheckedIn = false;
         teamStyle = PlayerTeamStatus.NONE;
     }
 
 
-     void setRegistered(boolean status)
-    {
+    void setCheckedIn(boolean status) {
+        isCheckedIn = status;
+    }
+
+    void setRegistered(boolean status) {
         isRegistered = status;
     }
 
-     void setTeamStyle(PlayerTeamStatus toBe){
+    void setTeamStyle(PlayerTeamStatus toBe) {
         teamStyle = toBe;
     }
 
-    public boolean isRegistered(){
+    public boolean isRegistered() {
         return isRegistered;
     }
 
-    public String getID(){
+    String getID() {
         return ID;
     }
 }

@@ -1,6 +1,9 @@
 package Main;
 
+import TournamentRunner.EchoTournament;
+import TournamentRunner.PlayerTeamStatus;
 import net.dv8tion.jda.core.entities.User;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -14,7 +17,7 @@ public class DirectMessageHandler extends ListenerAdapter {
         switch (msgA[0].toLowerCase()) {
 
             case "register":
-                registerCMD(msgA, event.getAuthor());
+                registerCMD(msgA, event);
                 break;
 
 
@@ -22,15 +25,18 @@ public class DirectMessageHandler extends ListenerAdapter {
 
     }
 
+    EchoTournament EAVRT = new EchoTournament();
 
-    private void registerCMD(String[] args, User user) {
+    private void registerCMD(String[] args, PrivateMessageReceivedEvent event) {
         if (!(args.length >= 2)) {
             return;
         }
         switch (args[1].toLowerCase()) {
             case "solo":
+                EAVRT.addPlayerToTournament(event, PlayerTeamStatus.SOLO_NO_TEAM);
                 break;
             case "team":
+
                 break;
         }
     }
