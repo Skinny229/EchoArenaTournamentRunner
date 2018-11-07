@@ -20,6 +20,7 @@ public class BotInitialize extends ListenerAdapter {
 
         JDA jda = new JDABuilder(Secrets.BOT_TOKEN).build();
         jda.addEventListener(new BotInitialize());
+        jda.addEventListener(new DirectMessageHandler());
 
         databaseConnection = ConnectionHandler.getRemoteConnection();
 

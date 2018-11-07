@@ -23,6 +23,10 @@ public class EchoTournament {
     public void addPlayerToTournament(PrivateMessageReceivedEvent event, PlayerTeamStatus toBe) {
         User user = event.getAuthor();
         Player ply;
+
+        /*
+        * Retrieves Player from the HashMap Directory otherwise create the player object and add it the directory
+        * */
         if (knownPlayers.containsKey(user.getId())) {
             ply = knownPlayers.get(user.getId());
         } else {
@@ -31,9 +35,12 @@ public class EchoTournament {
         }
 
 
-        ply.setTeamStyle(toBe);
+        //Add the player to the ArrayList for teaming up
         if (toBe == PlayerTeamStatus.SOLO_NO_TEAM)
             soloPlayers.add(ply);
+
+        //Finish Registration
+        ply.setTeamStyle(toBe);
         ply.setRegistered(true);
         registeredPlayers.put(ply.getID(), ply);
     }

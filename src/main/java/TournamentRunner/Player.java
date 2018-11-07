@@ -2,7 +2,7 @@ package TournamentRunner;
 
 public class Player {
 
-    private String name, ID;
+    private String name, ID, oculusName;
     private PlayerTeamStatus teamStyle;
     private boolean isRegistered, isCheckedIn;
 

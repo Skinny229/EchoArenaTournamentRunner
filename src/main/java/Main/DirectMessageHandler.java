@@ -2,17 +2,21 @@ package Main;
 
 import TournamentRunner.EchoTournament;
 import TournamentRunner.PlayerTeamStatus;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("unused")
 public class DirectMessageHandler extends ListenerAdapter {
 
     @Override
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent event) {
         String msg = event.getMessage().getContentRaw();
         String[] msgA = msg.split(" ");
+
+        if(msgA.length < 1)
+            return;
+
 
         switch (msgA[0].toLowerCase()) {
 
@@ -27,7 +31,7 @@ public class DirectMessageHandler extends ListenerAdapter {
 
     EchoTournament EAVRT = new EchoTournament();
 
-    private void registerCMD(String[] args, PrivateMessageReceivedEvent event) {
+    private void registerCMD(@NotNull String[] args, PrivateMessageReceivedEvent event) {
         if (!(args.length >= 2)) {
             return;
         }
@@ -36,7 +40,7 @@ public class DirectMessageHandler extends ListenerAdapter {
                 EAVRT.addPlayerToTournament(event, PlayerTeamStatus.SOLO_NO_TEAM);
                 break;
             case "team":
-
+                EAVRT.addPlayerToTournament(event, PlayerTeamStatus.TEAM);
                 break;
         }
     }
