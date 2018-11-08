@@ -18,11 +18,13 @@ public class BotInitialize extends ListenerAdapter {
 
     public static void main(String[] args) throws LoginException {
 
+        databaseConnection = ConnectionHandler.getRemoteConnection();
+
         JDA jda = new JDABuilder(Secrets.BOT_TOKEN).build();
         jda.addEventListener(new BotInitialize());
         jda.addEventListener(new DirectMessageHandler());
 
-        databaseConnection = ConnectionHandler.getRemoteConnection();
+
 
 
     }
