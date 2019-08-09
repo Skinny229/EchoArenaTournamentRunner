@@ -44,8 +44,5 @@ public class ClientWrapperApplication {
                 logger.error(e.toString());
             }
         }
-
     }
-
-
 }
