@@ -19,11 +19,14 @@ public class ClientWrapperApplication {
     private static final Logger logger = LoggerFactory.getLogger(ClientWrapperApplication.class);
 
     public static void main(String[] args) {
+
+
+        logger.info("Initiating Spring application");
         SpringApplication.run(ClientWrapperApplication.class, args);
     }
 
     @EventListener({ApplicationReadyEvent.class})
-    void OpenBrowserTabApplicationReady() {
+    public void OpenBrowserTabApplicationReady() {
         logger.info("Application has booted initiating browser interface...");
 
         String url = "http://locahost:8080";
