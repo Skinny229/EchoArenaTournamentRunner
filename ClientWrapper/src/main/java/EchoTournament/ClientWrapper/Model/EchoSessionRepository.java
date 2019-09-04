@@ -1,4 +1,7 @@
 package EchoTournament.ClientWrapper.Model;
 
-public class EchoSessionRepository {
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface EchoSessionRepository extends CrudRepository<EchoSessionModel, Long> {
 }
