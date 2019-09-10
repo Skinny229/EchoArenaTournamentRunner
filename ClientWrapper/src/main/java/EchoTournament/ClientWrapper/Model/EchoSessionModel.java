@@ -7,6 +7,8 @@ public class EchoSessionModel {
 
     private EchoDisc disc;
     private String sessionid;
+    private String game_clock_display;
+    private double game_clock;
     private int orange_points;
     private boolean private_match;
     private EchoTeam[] teams;
@@ -14,7 +16,7 @@ public class EchoSessionModel {
     private int[] possession;
     private boolean tournament_match;
     private int blue_points;
-    private EchoScoreStats last_score;
+
 
     public EchoDisc getDisc() {
         return disc;
@@ -88,11 +90,19 @@ public class EchoSessionModel {
         this.blue_points = blue_points;
     }
 
-    public EchoScoreStats getLast_score() {
-        return last_score;
+    public String getGame_clock_display() {
+        return game_clock_display;
     }
 
-    public void setLast_score(EchoScoreStats last_score) {
-        this.last_score = last_score;
+    public void setGame_clock_display(String game_clock_display) {
+        this.game_clock_display = game_clock_display;
+    }
+
+    public double getGame_clock() {
+        return game_clock;
+    }
+
+    public void setGame_clock(double game_clock) {
+        this.game_clock = game_clock;
     }
 }
