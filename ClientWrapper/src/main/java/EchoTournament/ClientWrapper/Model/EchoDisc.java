@@ -35,6 +35,4 @@ public class EchoDisc {
     public void setBounce_count(int bounce_count) {
         this.bounce_count = bounce_count;
     }
-
-
 }
