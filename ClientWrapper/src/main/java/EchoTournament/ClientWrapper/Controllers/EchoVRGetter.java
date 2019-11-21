@@ -19,19 +19,10 @@ public class EchoVRGetter {
         RestTemplate restTemplate = new RestTemplate();
         EchoSessionModel sessionData;
 
-        URI url = null;
-
-      try{
-
-          url = new URI(Settings.EA_HTTPSESSION_ADDRESS).resolve(Settings.EA_HTTPSESSION_ADDRESS);
-        }catch(Exception e)
-        {
-           logger.error(e.toString());
-        }
 
 
       try {
-           sessionData = restTemplate.getForObject(url, EchoSessionModel.class);
+           sessionData = restTemplate.getForObject(getUri(), EchoSessionModel.class);
       }catch (ResourceAccessException e)
       {
           logger.warn("Not able to collect data");
@@ -40,5 +31,18 @@ public class EchoVRGetter {
 
         return sessionData;
 
+    }
+
+
+    public static URI getUri(){
+
+        URI url = null;
+        try{
+            url = new URI(Settings.EA_HTTPSESSION_ADDRESS).resolve(Settings.EA_HTTPSESSION_ADDRESS);
+        }catch(Exception e)
+        {
+            logger.error(e.toString());
+        }
+        return url;
     }
 }

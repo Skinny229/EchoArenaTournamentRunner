@@ -7,6 +7,7 @@ public class EchoTeam {
 
     private EchoPlayer[] players;
     private String team;
+    private EchoGameGeneratedStats stats;
     private boolean possession;
 
     public EchoPlayer[] getPlayers() {
@@ -31,5 +32,13 @@ public class EchoTeam {
 
     public void setPossession(boolean possession) {
         this.possession = possession;
+    }
+
+    public EchoGameGeneratedStats getStats() {
+        return stats;
+    }
+
+    public void setStats(EchoGameGeneratedStats stats) {
+        this.stats = stats;
     }
 }
